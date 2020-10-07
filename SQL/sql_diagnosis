@@ -1,0 +1,7 @@
+select distinct df.DiagnosisCode, df.DiagnosisDesc ,df.IsPrimaryDiag
+from  IdentifiRpt.CareNoteFact cf
+left outer join IdentifiRpt.UM_ReviewLineDetailFact rldf on (cf.AuthReviewKey = rldf.AuthReviewKey)
+left outer join IdentifiRpt.DiagnosisFact df on (rldf.AuthRequestKey = df.AuthRequestKey)
+left outer join IdentifiRpt.UM_RequestFact AS A on A.AuthRequestKey = rldf.AuthRequestKey
+where rldf.AuthReviewPriorityKey in (2, 4) and A.IsPreDetermination in (1) and rldf.AuthReviewUMFinalStatusKey in (3, 5, 4)
+and rldf.AuthReviewTypeKey in (1) and A.ReferenceNumber = '

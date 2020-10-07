@@ -1,0 +1,27 @@
+select count(*) as count from (select distinct md.FIRST_NAME, md.LAST_NAME, md.MEMBER_NBR, muc.CONTRACT_ID, muc.PLAN_ID, A.ReferenceNumber,
+case when A.RequestorTypeKey=12 then 'CP' when A.RequestorTypeKey = 13  then 'B' when A.RequestorTypeKey=14 then 'BR' when A.RequestorTypeKey= 15 then 'NCP' else 'NA' end as RT,
+Case when up.FacilityProviderIsINN = 1 then 'CP' else 'NCP' end as provider_type,
+convert(varchar,di.DATE, 111) as date_request_received,
+convert(char(8), rldf.ReviewReceivedDateTime, 24) as time_request_received, --new
+Case when rldf.AuthReviewPriorityKey = 4 then 'Y' else 'N' end as timeframe_extension,
+Case when rldf.AuthReviewPriorityKey = 4 then '' else 'NA' end as expedited_grievance_colP,
+case when rldf.AuthReviewUMFinalStatusKey IN (4, 5) then 'Denied' else 'Approved' end as Request_Disposition,
+convert(varchar,dd.DATE, 111) as Date_sponsor_decision,
+convert(char(8), rldf.AuthReviewUMFinalDecisionDateTime, 24) as time_sponsor_decision,--new
+case when rldf.AuthReviewUMFinalStatusKey  = 3 THEN 'NA' ELSE CASE WHEN rldf.AuthReviewUMFinalDenialReasonKey IN (3, 4, 10, 33) THEN 'Y' ELSE 'N' end end as lack_of_medical_necessity,
+CASE WHEN rldf.AuthReviewUMFinalStatusKey = 3 THEN convert(varchar,dd.DATE, 111) ELSE 'NA' end as Date_service_authorization,
+CASE WHEN rldf.AuthReviewUMFinalStatusKey = 3 THEN convert(char(8), rldf.AuthReviewUMFinalDecisionDateTime, 24) ELSE 'NA' end as Time_service_authorization, --new
+DATEDIFF(hour, rldf.ReviewReceivedDateTime, rldf.AuthReviewUMFinalDecisionDateTime) as TAT_for_decision, --new
+case when DATEDIFF(hour, rldf.ReviewReceivedDateTime, rldf.AuthReviewUMFinalDecisionDateTime) > 72 then 'N' when DATEDIFF(hour, rldf.ReviewReceivedDateTime, rldf.AuthReviewUMFinalDecisionDateTime) < 0 THEN 'NA' else 'Y' end as Timeliness_for_decision --new
+from  IdentifiRpt.CareNoteFact cf
+left outer join MEMBER_DIM md on md.MEMBER_DIM_KEY= cf.MemberDimKey
+left outer join PLAN_DIM  pd on pd.PLAN_DIM_KEY= cf.PlanDimKey
+left outer join IdentifiRpt.UM_ReviewLineDetailFact rldf on (cf.AuthReviewKey = rldf.AuthReviewKey)
+left outer join DATE_DIM dd on dd.DATE_DIM_KEY = rldf.AuthReviewUMFinalDecisionDateDimKey
+left outer join MStrategy_Trans.dbo.MSTR_UNIVERSES_CLIENT  muc on muc.PLAN_DESC_IDCARD = pd.PLAN_DESC_IDCARD
+left outer join IdentifiRpt.UM_RequestFact AS A on A.AuthRequestKey = rldf.AuthRequestKey
+left outer join IdentifiRpt.DiagnosisFact df on (rldf.AuthRequestKey = df.AuthRequestKey)
+left outer join DATE_DIM di on di.DATE_DIM_KEY = rldf.ReviewReceivedDateDimKey
+left outer join VW_Fact_UM_Providers up on up.AuthRequestKey= rldf.AuthRequestKey
+where rldf.AuthReviewPriorityKey in (2, 4) and A.IsPreDetermination in (1) and rldf.AuthReviewUMFinalStatusKey in (3, 5, 4)
+and rldf.AuthReviewTypeKey in (1) and A.ReferenceNumber = '

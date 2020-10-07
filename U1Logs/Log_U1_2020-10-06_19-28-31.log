@@ -1,0 +1,121 @@
+10/06/2020 07:28:31 PM This tool is Utomation (Universe Reports Automation) created by Madhusudan Dhakite
+10/06/2020 07:28:31 PM Reading excel file:D:\Users\MDhakite\Desktop\HackathonSEP2020\U1Report2020.xlsx
+10/06/2020 07:28:31 PM Reaading it row by row
+10/06/2020 07:28:31 PM Captured all the values from Excel Report for Reference Number 7455709
+10/06/2020 07:28:32 PM Calculated required parameters from DB
+10/06/2020 07:28:32 PM AOR Date: NA
+10/06/2020 07:28:32 PM Oral Notification Date: NA
+10/06/2020 07:28:32 PM Diagnosis Value: T84.018A - BROKEN INTRL JOINT PROSTH OTH SITE INITIAL ENC
+10/06/2020 07:28:32 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:32 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:32 PM Verifying additional columns...
+10/06/2020 07:28:32 PM No failures in additional columns.
+10/06/2020 07:28:32 PM Captured all the values from Excel Report for Reference Number 7478551
+10/06/2020 07:28:33 PM Calculated required parameters from DB
+10/06/2020 07:28:33 PM AOR Date: NA
+10/06/2020 07:28:33 PM Oral Notification Date: NA
+10/06/2020 07:28:33 PM Diagnosis Value: T21.02 - BURN OF UNSPECIFIED DEGREE OF ABDOMINAL WALL
+10/06/2020 07:28:33 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:33 PM Failure in AOR date column for reference no: 7478551
+10/06/2020 07:28:33 PM Expected Value: NA Actual Value: 2019/09/21
+10/06/2020 07:28:33 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:33 PM Verifying additional columns...
+10/06/2020 07:28:33 PM No failures in additional columns.
+10/06/2020 07:28:33 PM Captured all the values from Excel Report for Reference Number 7428075
+10/06/2020 07:28:34 PM Calculated required parameters from DB
+10/06/2020 07:28:34 PM AOR Date: NA
+10/06/2020 07:28:34 PM Oral Notification Date: NA
+10/06/2020 07:28:34 PM Diagnosis Value: E10.65 - TYPE 1 DIABETES MELLITUS WITH HYPERGLYCEMIA
+10/06/2020 07:28:34 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:34 PM Failure in AOR date column for reference no: 7428075
+10/06/2020 07:28:34 PM Expected Value: NA Actual Value: 2019/01/15
+10/06/2020 07:28:34 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:34 PM Verifying additional columns...
+10/06/2020 07:28:34 PM No failures in additional columns.
+10/06/2020 07:28:34 PM Captured all the values from Excel Report for Reference Number 7428385
+10/06/2020 07:28:35 PM Calculated required parameters from DB
+10/06/2020 07:28:35 PM AOR Date: NA
+10/06/2020 07:28:35 PM Oral Notification Date: NA
+10/06/2020 07:28:35 PM Diagnosis Value: T21.62XS - CORROSION SECOND DEGREE ABDOMINAL WALL SEQUELA
+10/06/2020 07:28:35 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:35 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:35 PM Verifying additional columns...
+10/06/2020 07:28:35 PM No failures in additional columns.
+10/06/2020 07:28:35 PM Captured all the values from Excel Report for Reference Number 7446346
+10/06/2020 07:28:36 PM Calculated required parameters from DB
+10/06/2020 07:28:36 PM AOR Date: NA
+10/06/2020 07:28:36 PM Oral Notification Date: NA
+10/06/2020 07:28:36 PM Diagnosis Value: G47.33 - OBSTRUCTIVE SLEEP APNEA ADULT PEDIATRIC
+10/06/2020 07:28:36 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:36 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:36 PM Verifying additional columns...
+10/06/2020 07:28:36 PM Failure for reference no: 7446346
+10/06/2020 07:28:36 PM Record from DB: AGUSTINAWARD3141305H98700017446346CPNCP2019/06/17NNADenied2019/06/18YNA1Y
+10/06/2020 07:28:36 PM Record from Excel Report: AGUSTINAWARD3141305H98700017446346CPNCP2019/06/17NNADenied2019/06/18YNANANA
+10/06/2020 07:28:36 PM No failures in additional columns.
+10/06/2020 07:28:36 PM Captured all the values from Excel Report for Reference Number 7466298
+10/06/2020 07:28:36 PM Calculated required parameters from DB
+10/06/2020 07:28:36 PM AOR Date: NA
+10/06/2020 07:28:36 PM Oral Notification Date: NA
+10/06/2020 07:28:36 PM Diagnosis Value: H61.321 - ACQ STENOSIS RT EXT EAR CANAL SEC INFLAMM & INF
+10/06/2020 07:28:36 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:36 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:36 PM Verifying additional columns...
+10/06/2020 07:28:36 PM No failures in additional columns.
+10/06/2020 07:28:36 PM Captured all the values from Excel Report for Reference Number 7444987
+10/06/2020 07:28:37 PM Calculated required parameters from DB
+10/06/2020 07:28:37 PM AOR Date: NA
+10/06/2020 07:28:37 PM Oral Notification Date: NA
+10/06/2020 07:28:37 PM Diagnosis Value: S80.812 - ABRASION LEFT LOWER LEG; R93.421 - ABNORMAL RAD FIND DIAGNOISIS IMAGING RT KIDNEY
+10/06/2020 07:28:37 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:37 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:37 PM Verifying additional columns...
+10/06/2020 07:28:37 PM Failure for reference no: 7444987
+10/06/2020 07:28:37 PM Record from DB: ALLANTAYLOR2900754H98700017444987BCP2019/05/14NNAApproved2019/05/14NA2019/05/140Y
+10/06/2020 07:28:37 PM Record from Excel Report: ALLANTAYLOR2900754H98700017444987BCP2019/05/14NNADenied2019/05/14NNANANA
+10/06/2020 07:28:37 PM No failures in additional columns.
+10/06/2020 07:28:37 PM Captured all the values from Excel Report for Reference Number 7444987
+10/06/2020 07:28:38 PM Calculated required parameters from DB
+10/06/2020 07:28:38 PM AOR Date: NA
+10/06/2020 07:28:38 PM Oral Notification Date: NA
+10/06/2020 07:28:38 PM Diagnosis Value: S80.812 - ABRASION LEFT LOWER LEG; R93.421 - ABNORMAL RAD FIND DIAGNOISIS IMAGING RT KIDNEY
+10/06/2020 07:28:38 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:38 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:38 PM Verifying additional columns...
+10/06/2020 07:28:38 PM No failures in additional columns.
+10/06/2020 07:28:38 PM Captured all the values from Excel Report for Reference Number 7429018
+10/06/2020 07:28:39 PM Calculated required parameters from DB
+10/06/2020 07:28:39 PM AOR Date: NA
+10/06/2020 07:28:39 PM Oral Notification Date: NA
+10/06/2020 07:28:39 PM Diagnosis Value: S06.386S - CONT LAC & HEM BRAINSTEM LOC>24H NO RTN SURV SEQ
+10/06/2020 07:28:39 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:39 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:39 PM Verifying additional columns...
+10/06/2020 07:28:39 PM Failure for reference no: 7429018
+10/06/2020 07:28:39 PM Record from DB: ALLANTAYLOR2900754H98700017429018BCP2019/01/16NNAApproved2019/01/31NA2019/01/3115N
+10/06/2020 07:28:39 PM Record from Excel Report: ALLANTAYLOR2900754H98700017429018BCP2019/01/16NNAApproved2019/01/16NA2019/01/160Y
+10/06/2020 07:28:39 PM No failures in additional columns.
+10/06/2020 07:28:39 PM Captured all the values from Excel Report for Reference Number 7428068
+10/06/2020 07:28:40 PM Calculated required parameters from DB
+10/06/2020 07:28:40 PM AOR Date: NA
+10/06/2020 07:28:40 PM Oral Notification Date: NA
+10/06/2020 07:28:40 PM Diagnosis Value: J96.21 - ACUTE & CHRONIC RESPIRATORY FAILURE WITH HYPOXIA
+10/06/2020 07:28:40 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:40 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:40 PM Verifying additional columns...
+10/06/2020 07:28:40 PM Failure for reference no: 7428068
+10/06/2020 07:28:40 PM Record from DB: ALLENWRIGHT3109302H98700017428068CPNCP2019/01/10NNADenied2019/01/24YNA14Y
+10/06/2020 07:28:40 PM Record from Excel Report: ALLENWRIGHT3109302H98700017428068CPNCP2019/01/10NNADenied2019/01/22YNANANA
+10/06/2020 07:28:40 PM No failures in additional columns.
+10/06/2020 07:28:40 PM Captured all the values from Excel Report for Reference Number 7498210
+10/06/2020 07:28:41 PM Calculated required parameters from DB
+10/06/2020 07:28:41 PM AOR Date: NA
+10/06/2020 07:28:41 PM Oral Notification Date: NA
+10/06/2020 07:28:41 PM Diagnosis Value: T84.010 - BROKEN INTERNAL RIGHT HIP PROSTHESIS
+10/06/2020 07:28:41 PM Comparison with Calculated columns initiated...
+10/06/2020 07:28:41 PM Comparison with Calculated columns completed.
+10/06/2020 07:28:41 PM Verifying additional columns...
+10/06/2020 07:28:41 PM No failures in additional columns.
+10/06/2020 07:28:41 PM Count of Failed Reference Numbers: 4
+10/06/2020 07:28:41 PM Count of Total Reference Numbers: 11
+10/06/2020 07:28:41 PM Time taken for the process: 00:00:09.21
