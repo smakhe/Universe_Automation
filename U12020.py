@@ -1,33 +1,53 @@
 import xlrd
-import Common.uni_functions as uf
+import uni_functions as uf
 import datetime
 import time
 import logging
+import os 
+import pandas as pd
+
+
+dir = os.path.dirname(__file__)
 
 start = time.time()  # Capture the time at the start of the execution
 #log_file_path = (uf.create_folder('Logs')+'\\').replace('/', '\\')  # Fodler for Logs
 log_file_name = 'Log_U1_' + datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S') + '.log'  # Log Files
+   
 for handler in logging.root.handlers[:]:
     logging.root.removeHandler(handler)
-logging.basicConfig(filename="D:\\Users\\MDhakite\\Desktop\\WORK\\Automation\\Universe_2020\\U1Logs\\"+log_file_name, level=logging.ERROR,
+try:
+    logging.basicConfig(filename=dir+"\\U1Logs\\"+log_file_name, level=logging.ERROR,
                     format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', filemode='w')
-logging.error('This tool is Utomation (Universe Reports Automation) created by Madhusudan Dhakite')
+except:
+    logging.error("Cannot open the log file!")
 
-concat_sql_file1 = open("D:\\Users\\MDhakite\\Desktop\\WORK\\Automation\\Universe_2020\\SQL\\u1_sql_concat","r")
-concat_sql_file2 = open("D:\\Users\\MDhakite\\Desktop\\WORK\\Automation\\Universe_2020\\SQL\\u1_sql_concat2","r")
-file_name = "D:\\Users\\MDhakite\\Desktop\\WORK\\Automation\\Universe_2020\\Reports\\U1Report2020.xlsx"
+################# Reading Excel into dataframe #################
+try:
+    univ1_report = dir+"\\Reports\\U1Report2020.xlsx"
+    df = pd.read_excel(univ1_report, sheet_name='Sheet1')
+
+    print(df)
+
+except:
+    print("Cannot open file", univ1_report) 
+    os._exit(1)
+################################################################
+
+concat_sql_file1 = open(dir+"\\SQL\\u1_sql_concat","r")
+concat_sql_file2 = open(dir+"\\SQL\\u1_sql_concat2","r")
+file_name = dir+"\\Reports\\U1Report2020.xlsx"
 sql = concat_sql_file1.read()
 sql2 = concat_sql_file2.read()
 concat_sql_file1.close()
 concat_sql_file2.close()
 wb = xlrd.open_workbook(file_name)
 sheet = wb.sheet_by_index(0)
-logging.error('Reading excel file:'+ file_name)
+logging.error('Reading excel file: '+ file_name + '. One row at a time')
 print('Verifying 22 columns: Beneficiary First Name, Beneficiary Last Name, Enrollee ID, Contract ID ,Plan ID, Authorization or Claim Number, Who made the request?, Provider Type, Date the request was received, Diagnosis, Was request made under the expedited timeframe but processed by the plan under the standard timeframe?, Was a timeframe extension taken?, If an extension was taken, did the sponsor notify the member of the reason(s) for the delay and of their right to file an expedited grievance?, Request Disposition, Date of sponsor decision, Was the request denied for lack of medical necessity?, Date oral notification provided to enrollee, Date service authorization entered/effectuated in the sponsor’s system, AOR receipt date, First Tier, Downstream, and Related Entity, Turn around time for decision, Timeliness for decision \n')
 total_reference_numberss = 0
 failed_reference_numbers = 0
 
-logging.error('Reaading it row by row')
+#logging.error('Reading it row by row')
 
 for r in range(1, sheet.nrows):
 
@@ -68,7 +88,7 @@ for r in range(1, sheet.nrows):
         r_TAT_for_decision = int(sheet.cell_value(r, 22))
     r_Timeliness_for_decision = sheet.cell_value(r, 23)
 
-    logging.error('Captured all the values from Excel Report for Reference Number '+RefNo)
+    logging.error('Captured all the values from Excel Report for Reference Number '+ str(int(RefNo)))
 
     # Calculate aor, oral notification date and diagnosis
     aor_date = uf.calculate_aor(r_Who_made_the_request, RefNo)  # calculate aor value from DB

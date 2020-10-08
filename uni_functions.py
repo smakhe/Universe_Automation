@@ -1,11 +1,14 @@
 import pyodbc
 import os
-sql_file = open("D:\\Users\\MDhakite\\Desktop\\WORK\\Automation\\Universe_2020\\SQL\\u1_sql_aor_oral_notif", "r")
+
+dir = os.path.dirname(__file__)
+
+sql_file = open(dir+"\\SQL\\u1_sql_aor_oral_notif", "r")
 sql_aor1 = sql_file.readline()
 sql_aor2 = sql_file.readline()
 sql_oral_notification = sql_file.readline()
 sql_file.close()
-sql_diagnosis = open("D:\\Users\\MDhakite\\Desktop\\WORK\\Automation\\Universe_2020\\SQL\\sql_diagnosis","r")
+sql_diagnosis = open(dir+"\\SQL\\sql_diagnosis","r")
 sql_dg = sql_diagnosis.read()
 sql_diagnosis.close()
 
@@ -14,11 +17,16 @@ def get_db_val(sql):
     # Get values from Configuration file
     server = 'INE1UT-DWDB-001.EHNP.CORP.EVOLENTHEALTH.COM'
     db = 'EVH_DW'
-    conn = pyodbc.connect('Driver={SQL Server};Server=%s;Database=%s;Trusted_Connection=yes;' % (server, db))
-    cursor = conn.cursor()
-    cursor.execute(sql)
-    records = cursor.fetchall()
-    return records
+    try:
+        conn = pyodbc.connect('Driver={SQL Server};Server=%s;Database=%s;Trusted_Connection=yes;' % (server, db))
+        cursor = conn.cursor()
+        cursor.execute(sql)
+        records = cursor.fetchall()
+        return records
+    except:
+         print("Database Login Error!")
+         os._exit(1)
+    return 0
 
 
 def calculate_aor(who_made_the_request, Ref_Nbr):
