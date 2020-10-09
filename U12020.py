@@ -5,9 +5,23 @@ import time
 import logging
 import os 
 import pandas as pd
+import pyodbc
+import sqlalchemy as sal
+from sqlalchemy import create_engine
 
+#Setting connection string for the database
+try:
+    server = 'INE1UT-DWDB-001.EHNP.CORP.EVOLENTHEALTH.COM'
+    db = 'EVH_DW'
+    engine = sal.create_engine('mssql+pyodbc://'+server+'/'+db+'?driver=SQL Server?Trusted_Connection=yes')
+    conn = engine.connect()
+except:
+    print("Database Connection Error!")
+    os._exit(1)
 
+#Getting path for the current working directory
 dir = os.path.dirname(__file__)
+
 
 start = time.time()  # Capture the time at the start of the execution
 #log_file_path = (uf.create_folder('Logs')+'\\').replace('/', '\\')  # Fodler for Logs
@@ -23,15 +37,28 @@ except:
 
 ################# Reading Excel into dataframe #################
 try:
+    print("Fetching data from excel to dataframe")
+    logging.error("Fetching data from excel to dataframe")
     univ1_report = dir+"\\Reports\\U1Report2020.xlsx"
     df = pd.read_excel(univ1_report, sheet_name='Sheet1')
-
-    print(df)
+    print("Data successfully retrived from excel")
+    logging.error("Data successfully retrived from excel")
 
 except:
     print("Cannot open file", univ1_report) 
     os._exit(1)
-################################################################
+
+################# Fetching values from database into dataframe #################
+try:
+    sql_query = pd.read_sql_query(dir+"\\SQL\\Universe1.sql", engine)
+    df_db = pd.DataFrame(sql_query)
+    conn.close()
+    print(df)
+except:
+    print("Cannot read from database!") 
+    os._exit(1)
+
+
 
 concat_sql_file1 = open(dir+"\\SQL\\u1_sql_concat","r")
 concat_sql_file2 = open(dir+"\\SQL\\u1_sql_concat2","r")
